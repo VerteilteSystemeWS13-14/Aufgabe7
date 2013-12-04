@@ -10,8 +10,7 @@ public class RmiForumClient {
 			ForumClient client = new ForumClient(new RmiModelForwarder());
 			client.register();
 		} catch (Exception e) {
-			System.err.printf("%s: %s.", e.getClass().getName(), e.getMessage());
+			System.err.printf("ForumClient->%s: %s.", e.getClass().getName(), e.getMessage());
 		}
-		
 	}
 }

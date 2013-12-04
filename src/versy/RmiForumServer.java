@@ -11,8 +11,9 @@ public class RmiForumServer {
 		server = new ForumServer(new RmiModelReceiver());
 		try {
 			server.run();
+			System.out.println("Server up and running.");
 		} catch (Exception e) {
-			System.err.printf("%s: %s.", e.getClass().getName(), e.getMessage());
+			System.err.printf("ForumServer->%s: %s.", e.getClass().getName(), e.getMessage());
 		}
 	}
 }

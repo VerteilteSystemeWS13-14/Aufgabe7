@@ -1,8 +1,6 @@
 package versy;
 
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 import forum.framework.IForumView;
@@ -10,22 +8,19 @@ import forum.framework.Position;
 
 public class RmiViewReceiver implements IRemoteForumView{
 
-	private List<IForumView> viewList;
+	private static final long serialVersionUID = -2324495364615492923L;
 	
-	private RmiViewReceiver()
+	private IForumView view;
+	
+	public RmiViewReceiver(IForumView p_view)
 	{
-		viewList = new LinkedList<IForumView>();
+		view = p_view;
 	}
-	
-	public void addView(IForumView view)
-	{
-		viewList.add(view);
-	}
-	
+		
 	@Override
-	public void notifyView(Map<String, Position> arg0) throws IOException {
-		for(IForumView view : viewList)
-			view.notifyView(arg0);
+	public void notifyView(Map<String, Position> folks) throws IOException {
+		System.out.println("ViewReceiver->notifying folks...");
+		view.notifyView(folks);
 	}
 
 }
