@@ -46,8 +46,6 @@ public class RmiModelReceiver implements IRemoteForumModel, Runnable{
 			throws AlreadyBoundException, IOException {
 		System.out.println("ModelReceiver->registering ViewForwarder...");
 		
-		view.notifyView(null);
-		
 		ForumModel.INSTANCE.registerView(name, new RmiViewForwarder(view));
 	}
 
