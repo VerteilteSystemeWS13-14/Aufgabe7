@@ -58,7 +58,7 @@ public class RmiModelReceiver implements IRemoteForumModel, Runnable{
 	private void startReg()
 	{
 		try {
-			LocateRegistry.createRegistry(1099);
+			LocateRegistry.createRegistry(Registry.REGISTRY_PORT);
 		} catch (RemoteException e) {
 			System.err.printf("Could not create Registry:\n%s: %s.", e.getClass().getName(), e.getMessage());
 		}
